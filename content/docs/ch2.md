@@ -85,7 +85,7 @@ In the last lab, you learned how to control a Particle device running the defaul
 
 It's important to note that the Xenon in your PartiBadge does not have a WiFi or cellular radio and thus, does not have a connection to the Internet. But Particle Mesh knows that your badge is connected via your gateway, and how to route messages through the gateway to your endpoint device. All you have to do is enter some text and click buttons!
 
-To underscore how this works, let's try accessing your badge when your gateway Xenon is disconnected.
+To underscore how that this is the case, let's try accessing your badge when your gateway Xenon is disconnected.
 
 10. Unplug the Ethernet cable from your gateway Xenon.
 
