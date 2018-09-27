@@ -19,7 +19,7 @@ module.exports = {
       ['/docs/extra1', 'Extra: Taking your exploration further']
     ]
   },
-  title: 'Particle Mesh Workshop - Spectra Edition',
+  title: 'Particle Mesh Workshop',
   description:
     'A hands-on walkthrough of the Particle ecosystem, Particle Mesh and the new Particle Xenon.'
 };
