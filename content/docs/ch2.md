@@ -43,7 +43,7 @@ Your PartiBadge Xenon has already been configured with firmware and added to the
 
 2. Hold the SETUP button on your PartiBadge Xenon for 3 seconds until is starts blinking blue, indicating that it has entered listening mode.
 
-![](./images/01/listeningmode.gif)
+![](./images/02/listeningmode.gif)
 
 3. Your phone will now scan for networks to join. It might find a few since we're all setting up networks at the same time, but if you gave your network a unique, recognizable name, you should find it in the list. Click your network name to select it once it shows up in the list.
 
@@ -73,28 +73,40 @@ In the last lab, you learned how to control a Particle device running the defaul
 
 3. Your PartiBadge was pre-loaded with firmware. That firmware includes several cloud functions and variables, which you can see listed on the right side of the overview screen for your device.
 
+![](./images/02/primitives.png)
+
 4. Let's set the name on your badge so it can be uniquely yours! Find the function named `updateFName` and enter your first name in the text box.
+
+![](./images/02/updateFName.png)
 
 5. Click `Call`. If the function call succeeded, a "1" should appear next to the function name.
 
-6. Now, enter your last name in the `updateLName` box and click `Call`.
+![](./images/02/callUpdateName.png)
 
-7. Optionally, you can enter your Twitter handle in the `updateTwttr` box.
+6. Now, enter your last name in the `updateLName` box and click `Call`. Optionally, you can enter your Twitter handle in the `updateTwttr` box.
 
-8. To confirm everything has been set correctly, you can click `Get` on the Particle variables for `wearerFName`, `wearerLName` and `wearerTwttr`. If the value you get back is the one you entered, you're good to go!
+![](./images/02/updateLName.png)
 
-9. Now let's see your name in lights! Grab your PartiBadge and activate the menu by clicking the joystick or one of the LED buttons. Click the `Display` menu item, then `Name`. You should see your name (and Twitter handle, if your set it) scrolling across the screen!
+7. To confirm everything has been set correctly, you can click `Get` on the Particle variables for `wearerFName`, `wearerLName` and `wearerTwttr`. If the value you get back is the one you entered, you're good to go!
+
+![](./images/02/getVars.png)
+
+8. Now let's see your name in lights! Grab your PartiBadge and activate the menu by clicking the joystick or one of the LED buttons. Click the `Display` menu item, then `Name`. You should see your name (and Twitter handle, if your set it) scrolling across the screen!
+
+![](./images/02/updateName.gif)
 
 It's important to note that the Xenon in your PartiBadge does not have a WiFi or cellular radio and thus, does not have a connection to the Internet. But Particle Mesh knows that your badge is connected via your gateway, and how to route messages through the gateway to your endpoint device. All you have to do is enter some text and click buttons!
 
 To underscore that this is the case, let's try accessing your badge when your gateway Xenon is disconnected.
 
-10. Unplug the Ethernet cable from your gateway Xenon.
+9. Unplug the Ethernet cable from your gateway Xenon.
 
-11. Navigate back to the [Particle Console](https://console.particle.io) and open the dashboard for your device.
+10. Navigate back to the [Particle Console](https://console.particle.io) and open the dashboard for your device.
 
-12. Try changing your first or last name and clicking "Call." You should get a timeout message toast at the bottom of the screen. If you try re-displaying your name, it should be unchanged.
+11. Try changing your first or last name and clicking "Call." You should get a timeout message toast at the bottom of the screen. If you try re-displaying your name, it should be unchanged.
 
-13. Plug an Ethernet cable back into your FeatherWing and repeat the last few steps. Everything should work.
+![](./images/02/callFailed.png)
+
+12. Plug an Ethernet cable back into your FeatherWing and repeat the last few steps. Everything should work.
 
 Congratulations on setting up your first Mesh network and exploring how Mesh devices work together! In our last lab, we'll look at how to explicitly send messages between Mesh devices, as well as using Particle functions, variables and cloud events.
