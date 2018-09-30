@@ -63,7 +63,7 @@ The first two Particle primitives we'll look at are also the newest, `Mesh.publi
 
 ### Using `Mesh.publish()`
 
-First, we're going to use `Particle.publish()` to send a message to our badges, which they've been pre-programmed to receive. Since we're working with a Xenon in an Ethernet FeatherWing, we'll use the `SETUP` button on the Xenon to fire a Mesh message.
+First, we're going to use `Mesh.publish()` to send a message to our badges, which they've been pre-programmed to receive. Since we're working with a Xenon in an Ethernet FeatherWing, we'll use the `MODE` button on the Xenon to fire a Mesh message.
 
 1. In `setup`, add the following:
 
@@ -98,9 +98,9 @@ When this handler is called, it will fire a multicast event to the entire Mesh n
 
 ![](./images/03/lightning.png)
 
-6. Once your gateway is breathing cyan again, click and release the `SETUP` button. You should see your badge respond to the event with your name!
+6. Once your gateway is breathing cyan again, click and release the `MODE` button. You should see your badge respond to the event with your name!
 
-If you're interested in seeing the subscribe side of this code before you write your own, you can view it in the [GitHub repo for the PartiBadge](https://github.com/particle-iot/). The `Mesh.subscribe` code is [here]() and the handler is [here]().
+If you're interested in seeing the subscribe side of this code before you write your own, you can view it in the [GitHub repo for the PartiBadge](https://github.com/particle-iot/). The `Mesh.subscribe` code is [here](https://github.com/particle-iot/parti-badge/blob/master/firmware/src/mesh/mesh.cpp#L48) and the handler is [here](https://github.com/particle-iot/parti-badge/blob/master/firmware/src/mesh/mesh.cpp#L35).
 
 ### Using `Mesh.subscribe()`
 
@@ -119,7 +119,7 @@ In addition to setting up a subscription handler, we call `pinMode` to designate
 2. Above the `setup` function, add the `pingHandler`. We don't need the two parameters for this step, but they are required on all event handlers.
 
 ```cpp
-void pingHandler(const char* event, const char* data) {
+void pingHandler(const char *event, const char *data) {
   digitalWrite(D7, HIGH);
   delay(2000);
   digitalWrite(D7, LOW);
@@ -128,16 +128,121 @@ void pingHandler(const char* event, const char* data) {
 
 When the `pingHandler` is called, it will turn the `D7` pin on by setting it high. On every Particle device, including the Xenon, the `D7` pin is connected to an onboard blue LED. So, by setting `D7` `HIGH`, you'll be turning on that LED each time an event is received. After 2 seconds (or 2000 milliseconds), the LED will be turned off.
 
-3. Click the lightning icon to flash the latest code to your device. On your PartiBadge, the "gateway-ping" event is available from the "Mesh Tools" menu. Navigate to that menu and click the "Ping Gateway" menu item to fire the event.
+3. Click the lightning icon to flash the latest code to your device. On your PartiBadge, the "gateway-ping" event is available from the "Mesh Tools" menu. Navigate to that menu and click the "Gateway Ping" menu item to fire the event. If everything works, you should see the blue LED at the top of your Gateway Xenon light up!
+
+![](./images/03/gatewayPing.gif)
 
 ## Exploring Particle Publish and Subscribe
 
-- Particle Publish and Subscribe.
-- Publish an event to the badge that fade blinks an LED.
-- For extra credit, find a partner at your table and set-up Publish/Subscribe between your devices.
+Now, let's look at `Particle.publish()` and `Particle.subscribe()`, which can be used to communicate between devices, networks and other applications from the Particle Device Cloud. Both primitives have the same signature as their `Mesh` class equivalents, so they should be straightforward to use. We'll start by publishing an event that our badges are listening for.
+
+### Using `Particle.publish()`
+
+1. Open your Gateway Xenon project in the Build IDE. In the last section, you created a `setupHandler` to publish a Mesh event to your badge when the `MODE` button is pressed. Change the body of that function to also publish a `Particle` event:
+
+```cpp{4}
+void setupHandler()
+{
+  Mesh.publish("gateway-setup-clicked", "Brandon");
+  Particle.publish("pulseLed", "red", PRIVATE); // Or "blue", "green", "yellow"
+}
+```
+
+2. On the badge itself, we've already implemented a `Particle.subscribe` that's listening for this message. Here's what it looks like.
+
+```cpp
+Particle.subscribe("pulseLed", pulseLEDHandler, MY_DEVICES);
+```
+
+```cpp
+void pulseLEDHandler(const char *event, const char *data)
+{
+  if (data == "red")
+    pulseLED(RED_LED);
+  else if (data == "blue")
+    pulseLED(BLUE_LED);
+  else if (data == "green")
+    pulseLED(GREEN_LED);
+  else if (data == "yellow")
+    pulseLED(YELLOW_LED);
+}
+```
+
+3. Flash the latest code to your Gateway and press the `MODE` button. In addition to seeing your original Mesh event, you should see the LED you specified in the publish event fade in and out. Do you notice a difference in how quickly these two things happen?
+
+### Using `Particle.subscribe()`
+
+Now let's implement a `Particle.subscribe()` handler on the gateway. Each badge publishes an event every two minutes when it reads its temp and humidity sensor. We'll listen for that event and light up the RGB LED on your Xenon using the built-in `LEDStatus` class.
+
+1. At the top of your Gateway firmware, add the following line to create an instance of the `LEDStatus` class:
+
+```cpp
+LEDStatus blinkBlue(RGB_COLOR_BLUE, LED_PATTERN_BLINK);
+```
+
+2. Next, add a subscription to the `setup` function.
+
+```cpp
+Particle.subscribe("env-sensors", tempHandler, MY_DEVICES);
+```
+
+3. Finally, add the handler.
+
+```cpp
+void tempHandler(const char *event, const char *data) {
+  blinkBlue.setActive(true);
+  delay(3000);
+  blinkBlue.setActive(false);
+}
+```
+
+4. Flash this firmware to your gateway and wait a bit for an event to be published. You can visit your badge dashboard at [console.particle.io](https://console.particle.io) to see when the `env-sensors` event is published. When it is, the RGB LED on your gateway should blink blue for 3 seconds.
+
+As we discussed during the session, the main difference between Mesh pub/sub and Particle pub/sub is that the former is intended for communication between devices within a network and doesn't leverage the cloud to facilitate communication. The latter, on the other hand, uses the cloud, which allows communication across networks, or even with 3rd party apps and integrations.
+
+One way to test this is to remove the Ethernet cable from your gateway, but keep it plugged in. Then, try sending Mesh and Particle events. What happens?
+
+For extra credit, find a partner at your table and set-up Publish/Subscribe between your gateway devices. You'll need to agree upon an event name, but you should have all the knowledge you need to make this work. If you get stuck, ask a Particle employee for help!
 
 ## Exploring Particle Variables and Functions
 
-- Particle Variables and Functions.
-- Add a variable to return the current state of the D7 pin.
-- Add a function to toggle the state of the D7 pin.
+For the last section of this workshop, we're going to explore the final two Particle primitives, variables and functions. Let's add a variable to check the current state of the `D7` pin, and a function to toggle it `LOW` and `HIGH`.
+
+1. First, let's add a global variable to track the state of the pin. At the top of your project, add the following:
+
+```cpp
+bool ledState = false;
+```
+
+2. Next, in `setup` add a `Particle.variable`
+
+```cpp
+Particle.variable("D7On", ledState);
+```
+
+3. Flash these changes to your device and open the Gateway dashboard in the Particle console. You should see a variable for "D7On." If you click "Get" the resulting value should be "false".
+
+![](./images/03/d7off.png)
+
+4. Now let's create a function. Add the following to your project:
+
+```cpp
+int toggleLED(String arg)
+{
+  ledState = !ledState;
+  digitalWrite(D7, ledState);
+  return 1;
+}
+```
+
+5. In `setup`, create the `Particle.function`
+
+```cpp
+Particle.function("toggleD7", toggleLED);
+```
+
+6. Flash the code and refresh the device dashboard in the console. You should now see the "toggleD7" above the "D7On" variable. Click "Call." The blue D7 LED on your gateway Xenon should come on. If you click "Get" for "D7On," it should now return "true."
+
+![](./images/03/d7on.png)
+
+Congratulations, you've completed the first Particle Mesh workshop! Thanks for joining us at Spectra and being among the first to explore our new hardware and tools!
