@@ -10,7 +10,7 @@ The workshops are broken into presentations intermixed with hands-on labs that r
 
 **Do I have to attend a workshop to complete the labs?**
 
-This site contains in-depth lab documents that complement in-person presentations delivered by Particle staff. Attendence of a workshop isn't strictly required to follow along with these labs, but they are written under the assumption that you're attending a workshop and using workshop-provided hardware (a Photon-powered badge PCB) to complete the exercises.
+This site contains in-depth lab documents that complement in-person presentations delivered by Particle staff. Attendence of a workshop isn't strictly required to follow along with these labs, but they are written under the assumption that you're attending a workshop and using workshop-provided hardware (a Xenon-powered badge PCB) to complete the exercises.
 
 **What's this badge then?**
 
@@ -28,9 +28,9 @@ For our workshops, we wanted to provide attendees with a set of hardware that al
   - Unbox a brand new Xenon, claim it to your Particle account, and make it light up with Tinker
 - Chapter 2: Setting up your first Mesh network
   - Create a Mesh network with your first device and add your PartiBadge Xenon to it. Explore interaction between devices on a Mesh network.
-- Chapter 3: Working with sensors and the Particle Device Cloud
+- Chapter 3: Mesh messaging and the Particle Device Cloud
   - Control your badge from the Mesh Gateway device, read from badge sensors, and talk to the Particle Device Cloud through the gateway.
 - Extras: Taking your exploration further
-  - Resources for taking your exploration of Particle Mesh further.
+  - Resources for taking your exploration of Mesh and the Particle Ecosystem further.
 
 ---

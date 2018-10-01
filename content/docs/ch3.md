@@ -1,4 +1,4 @@
-# Chapter 3: Working with sensors and the Particle Device Cloud
+# Chapter 3: Mesh messaging and the Particle Device Cloud
 
 | **Project Goal**            | Explore messaging between Mesh devices, and other Particle primitives.                                                      |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ The bulk of your program, from state management, handling user input, reading fr
 
 ## Exploring Mesh Publish and Subscribe
 
-The first two Particle primitives we'll look at are also the newest, `Mesh.publish()` and `Mesh.subscribe()`. These primitives allow us to send and receive broadcast messages within a Mesh network. Unlike `Particle.publish()` and `Particle.subscribe()` which we'll look at next, these messages can only be sent to and viewed by devices on the Mesh network.
+The first two Particle primitives we'll look at are also the newest, `Mesh.publish()` and `Mesh.subscribe()`. These primitives allow us to send and receive broadcast messages within a Mesh network. Unlike `Particle.publish()` and `Particle.subscribe()` which we'll look at next, these messages can only be sent to and viewed by devices on the same Mesh network.
 
 ### Using `Mesh.publish()`
 
@@ -71,7 +71,7 @@ First, we're going to use `Mesh.publish()` to send a message to our badges, whic
 System.on(button_click, setupHandler);
 ```
 
-`System.on` registers a [system event](https://docs.particle.io/reference/firmware/photon/#system-events-overview) tied to the `SETUP` button. When the button is clicked, a handler named `setupHandler` is called.
+`System.on` registers a [system event](https://docs.particle.io/reference/firmware/photon/#system-events-overview) tied to the `MODE` button. When the button is clicked, a handler named `setupHandler` is called.
 
 2. Add the `setupHandler` above the `setup` function and replace `<your-first-name>` with your name.
 
@@ -86,11 +86,11 @@ void setupHandler()
 
 When this handler is called, it will fire a multicast event to the entire Mesh network. If one or more devices on the network are listening for this event, they'll receive it and respond accordingly.
 
-3. Lets flash this firmware to your gateway. First, click on the crosshairs icon in the left side of Build to open your devices list.
+3. Let's flash this firmware to your gateway. First, click on the crosshairs icon in the left side of Build to open your devices list.
 
 ![](./images/03/devices.png)
 
-4. Find your gateway Xenon in the list and click the "star" next to its name to set it as your active device. Keep the default firmware selection.
+4. Find your gateway Xenon in the list and click the "star" next to its name to set it as your active device. Keep the default firmware version selection.
 
 ![](./images/03/devicesList.png)
 
@@ -126,7 +126,7 @@ void pingHandler(const char *event, const char *data) {
 }
 ```
 
-When the `pingHandler` is called, it will turn the `D7` pin on by setting it high. On every Particle device, including the Xenon, the `D7` pin is connected to an onboard blue LED. So, by setting `D7` `HIGH`, you'll be turning on that LED each time an event is received. After 2 seconds (or 2000 milliseconds), the LED will be turned off.
+When the `pingHandler` is called, it will turn the `D7` pin on by setting it `HIGH`. On every Particle device, including the Xenon, the `D7` pin is connected to an onboard blue LED. So, by setting `D7` `HIGH`, you'll be turning on that LED each time an event is received. After 2 seconds (or 2000 milliseconds), the LED will be turned off by setting it `LOW`.
 
 3. Click the lightning icon to flash the latest code to your device. On your PartiBadge, the "gateway-ping" event is available from the "Mesh Tools" menu. Navigate to that menu and click the "Gateway Ping" menu item to fire the event. If everything works, you should see the blue LED at the top of your Gateway Xenon light up!
 
@@ -134,7 +134,7 @@ When the `pingHandler` is called, it will turn the `D7` pin on by setting it hig
 
 ## Exploring Particle Publish and Subscribe
 
-Now, let's look at `Particle.publish()` and `Particle.subscribe()`, which can be used to communicate between devices, networks and other applications from the Particle Device Cloud. Both primitives have the same signature as their `Mesh` class equivalents, so they should be straightforward to use. We'll start by publishing an event that our badges are listening for.
+Now, let's look at `Particle.publish()` and `Particle.subscribe()`, which can be used to communicate between devices, networks and other applications from the Particle Device Cloud. Both primitives have the same signature as their `Mesh` class equivalents, so they should be straightforward to use. We'll start by publishing an event that our badges have already been set up to detect.
 
 ### Using `Particle.publish()`
 

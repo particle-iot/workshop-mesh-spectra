@@ -18,7 +18,7 @@ In the last session, you configured your first Xenon. In this session, we're goi
 
 ![](./images/02/createNetwork.png)
 
-3. Next, give your network a name. Try to give it a unique name since there are going to be a lot of networks set-up for this workshop.
+3. Next, give your network a name. Try to give it a personalized name since there are going to be a lot of networks set-up for this workshop.
 
 ![](./images/02/nameNetwork.png)
 

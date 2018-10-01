@@ -35,11 +35,9 @@ In this lab, you'll claim your first Particle Mesh device, the Xenon, with the h
 
 ![](./images/01/listeningmode.gif)
 
-With the Xenon connected and in listening mode, you're ready to claim it with your mobile device.
-
 ## Claiming the Xenon from mobile
 
-**Note**: Images below are from the iOS setup. The flow of the Android setup experience is similar.
+**Note**: Images below are from the iOS app. The flow of the Android setup experience is similar.
 
 1.  Open the Particle Mobile App.
 
@@ -61,7 +59,7 @@ With the Xenon connected and in listening mode, you're ready to claim it with yo
 
 ![](./images/01/getready.png)
 
-Make sure your device is in "Listening Mode" (aka blinking blue). If the Xenon is not in listening mode, hold down the SETUP button for three seconds, until the RGB LED begins blinking blue.
+Make sure your device is in "Listening Mode" (aka blinking blue). If the Xenon is not in listening mode, hold down the `MODE` button for three seconds, until the RGB LED begins blinking blue.
 
 ![](./images/01/listeningmode.gif)
 
@@ -104,11 +102,11 @@ Tap the device you want to interact with via Tinker.
 
 ![](./images/01/02-devicelist.png)
 
-3.  When you select a device flashed with the Tinker firmware, you'll see a list of all the GPIO pins on the Xenon, eight on each side, or 16 in total. With Tinker, you can control the digital and analog pins via reads and writes. If you have sensors or actuators connected to the Xenon, you can control them with Tinker.
+3.  When you select a device flashed with the Tinker firmware, you'll see a list of all the GPIO pins on the Xenon. With Tinker, you can control the digital and analog pins via reads and writes. If you have sensors or actuators connected to the Xenon, you can control them with Tinker.
 
 ![](./images/01/03-tinker.png)
 
-4.  Every Xenon has a blue LED that's connected to pin D7, and we can use Tinker to control this LED. Tap on the circle marked "D7" and you'll see a pop-up that gives you two options, `digitalRead` and `digitalWrite`. We'll learn more about what these mean in a future lab. For now, click on `digitalWrite`.
+4.  Every Xenon has a blue LED that's connected to pin D7, and we can use Tinker to control this LED. Tap on the circle marked "D7" and you'll see a pop-up that gives you two options, `digitalRead` and `digitalWrite`. Click on `digitalWrite`.
 
 ![](./images/01/04-d7.png)
 
