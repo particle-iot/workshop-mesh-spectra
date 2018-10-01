@@ -2,15 +2,15 @@
 
 | **Project Goal**            | Create a Mesh network and connect a second Xenon to it                                                                                 |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **What you’ll learn**       | How to: create a new Mesh network; add a second device to your Mesh network; communicate through a Mesh gateway to an endpoint device. |
-| **Tools you’ll need**       | A Xenon, Ethernet Shield, Ethernet switch access, Xenon connected to a PartiBadge, the Particle Mobile App                             |
+| **What you’ll learn**       | How-to: create a new Particle Mesh network; add a second device to your Mesh network; communicate through a Mesh gateway to an endpoint device. |
+| **Tools you’ll need**       | A Xenon, Ethernet FeatherWing, access to an Ethernet port, Xenon connected to a PartiBadge, the Particle Mobile App                             |
 | **Time needed to complete** | 15 minutes                                                                                                                             |
 
-In the last session, you configured your first Xenon. In this session, we're going to create a mesh network with your Ethernet-connected Xenon as a gateway, and then add a second Xenon (the one in your PartiBadge) to that network.
+In the last session, you configured your first Xenon. In this session, you're going to create a Particle Mesh network with your Ethernet-connected Xenon as a gateway, and then add a second Xenon (the one in your PartiBadge) to that mesh network.
 
 ## Create a Mesh Network
 
-1. Open the Particle Mobile app. Click on the Xenon device you set-up in the last lab and click "Mesh Network."
+1. Open the Particle Mobile app. Click on the Xenon device you setup in the last lab and click "Mesh Network."
 
 ![](./images/02/joinMesh.png)
 
@@ -18,7 +18,7 @@ In the last session, you configured your first Xenon. In this session, we're goi
 
 ![](./images/02/createNetwork.png)
 
-3. Next, give your network a name. Try to give it a personalized name since there are going to be a lot of networks set-up for this workshop.
+3. Next, give your network a name. Try to give it a personalized name since there are going to be a lot of networks setup for this workshop.
 
 ![](./images/02/nameNetwork.png)
 
@@ -35,13 +35,13 @@ Once your network is created, you're ready to add a second device!
 
 ## Add your PartiBadge Xenon to your Mesh Network
 
-Your PartiBadge Xenon has already been configured with firmware and added to the Spectra mesh network. In this section, you'll claim your badge Xenon to your account and add it to your personal mesh network.
+Your PartiBadge Xenon has already been configured with firmware and added to the Spectra mesh network. In this section, you'll claim the Xenon in your to your account and add it to your personal mesh network.
 
 1. Once your network is configured, you'll have the option to add another device. Click "Add Next Mesh Setup" to configure another device.
 
 ![](./images/02/addNextDevice.png)
 
-2. Hold the SETUP button on your PartiBadge Xenon for 3 seconds until is starts blinking blue, indicating that it has entered listening mode.
+2. Hold the SETUP button on your PartiBadge Xenon for three seconds until is starts blinking blue, indicating that it has entered Listening Mode.
 
 ![](./images/02/listeningmode.gif)
 
@@ -49,7 +49,7 @@ Your PartiBadge Xenon has already been configured with firmware and added to the
 
 ![](./images/02/findNetwork.png)
 
-4. Once you select the network, you'll be asked to make sure your device is in Listening Mode. If you didn't already do so in step 2, put the Xenon in listening mode by holding down the SETUP button.
+4. Once you select the network, you'll be asked to make sure your device is in Listening Mode. If you didn't already do so in Step 2, put the Xenon in Listening Mode by holding down the SETUP button.
 
 ![](./images/02/addToNetwork.png)
 
@@ -59,7 +59,7 @@ Your PartiBadge Xenon has already been configured with firmware and added to the
 
 6. Enter the network password you specified in the last section.
 
-Congratulations! You now have a mesh network of two devices. Let's explore the power of Mesh by controlling your Badge Xenon from the cloud.
+Congratulations! You now have a Particle Mesh network of two devices. Let's explore the power of Mesh by controlling your Badge Xenon from the cloud.
 
 ## Explore your mini Mesh network
 
@@ -71,11 +71,11 @@ In the last lab, you learned how to control a Particle device running the defaul
 
 ![](./images/02/consoleMain.png)
 
-3. Your PartiBadge was pre-loaded with firmware. That firmware includes several cloud functions and variables, which you can see listed on the right side of the overview screen for your device.
+3. Your PartiBadge was pre-loaded with firmware. That firmware includes several Particle Cloud Functions and variables, which you can see listed on the right side of the overview screen for your device.
 
 ![](./images/02/primitives.png)
 
-4. Let's set the name on your badge so it can be uniquely yours! Find the function named `updateFName` and enter your first name in the text box.
+4. Set the name on your badge so it can be uniquely yours! Find the function named `updateFName` and enter your first name in the text box.
 
 ![](./images/02/updateFName.png)
 
@@ -91,13 +91,13 @@ In the last lab, you learned how to control a Particle device running the defaul
 
 ![](./images/02/getVars.png)
 
-8. Now let's see your name in lights! Grab your PartiBadge and activate the menu by clicking the joystick or one of the LED buttons. Click the `Display` menu item, then `Name`. You should see your name (and Twitter handle, if your set it) scrolling across the screen!
+8. Now it's time to see your name in lights! Grab your PartiBadge and activate the menu by clicking the joystick or one of the LED buttons. Click the `Display` menu item, then `Name`. You should see your name (and Twitter handle, if your set it) scrolling across the screen!
 
 ![](./images/02/updateName.gif)
 
-It's important to note that the Xenon in your PartiBadge does not have a WiFi or cellular radio and thus, does not have a connection to the Internet. But Particle Mesh knows that your badge is connected via your gateway, and how to route messages through the gateway to your endpoint device. All you have to do is enter some text and click buttons!
+It's important to note that the Xenon in your PartiBadge does not have a Wi-Fi or cellular radio and thus, does not have a connection to the Internet. But Particle Mesh knows that your badge is connected via your gateway, and how to route messages through the gateway to your endpoint device. All you have to do is enter some text and click buttons!
 
-To underscore that this is the case, let's try accessing your badge when your gateway Xenon is disconnected.
+To underscore that this is the case, try accessing your badge when your gateway Xenon is disconnected.
 
 9. Unplug the Ethernet cable from your gateway Xenon.
 
@@ -109,4 +109,4 @@ To underscore that this is the case, let's try accessing your badge when your ga
 
 12. Plug an Ethernet cable back into your FeatherWing and repeat the last few steps. Everything should work.
 
-Congratulations on setting up your first Mesh network and exploring how Mesh devices work together! In our last lab, we'll look at how to explicitly send messages between Mesh devices, as well as using Particle functions, variables and cloud events.
+Congratulations on setting up your first Particle Mesh network and exploring how mesh devices work together! In our last lab, you'll learn how to explicitly send messages between Mesh devices, as well as using Particle Cloud Functions, variables and Device Cloud events.

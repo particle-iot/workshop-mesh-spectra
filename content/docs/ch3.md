@@ -2,32 +2,32 @@
 
 | **Project Goal**            | Explore messaging between Mesh devices, and other Particle primitives.                                                      |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **What you’ll learn**       | How to: use Particle build to write device firmware; using Particle primitives to communicate between devices and networks. |
+| **What you’ll learn**       | How-to: use the Particle Web IDE to write device firmware; using Particle primitives to communicate between devices and networks. |
 | **Tools you’ll need**       | A Xenon, Ethernet Shield, Ethernet switch access, Xenon connected to a PartiBadge, the Particle Mobile App, The Particle    |
 | **Time needed to complete** | 30 minutes                                                                                                                  |
 
 In this final session, we'll leverage our new Mesh networks to explore more of the particle system, including:
 
-- Using Particle Build to write device firmware;
+- Using Particle Web IDE to write device firmware;
 - Using Mesh publish and subscribe to communicate between devices on a mesh network;
 - Using Particle publish and subscribe to communicate between networks and devices;
 - Using Particle functions and variables to control devices from the Cloud.
 
-The code you'll write in this lab will live on your Gateway Xenon, and communicate with your PartiBadge in a variety of ways. By the end of this session, you'll have all the tools you need to start building Particle-powered solutions with Particle Mesh!
+The code you'll write in this lab will live on your gateway Xenon, and communicate with your PartiBadge in a variety of ways. By the end of this session, you'll have all the tools you need to start building Particle-powered solutions with Particle Mesh!
 
-## Using Particle Build
+## Using the Particle Web IDE
 
-In this section, you'll use Particle Build to create firmware for your Gateway Xenon. Particle Build is a web-based IDE that makes it easy to program devices and learn the Particle ecosystem.
+In this section, you'll use the Web IDE to create firmware for your gateway Xenon. The Web IDE makes it accessible to program devices and learn the Particle ecosystem without having to install a local toolchain.
 
 1.  Navigate to [build.particle.io](http://build.particle.io). You may need to log-in, if prompted.
 
 ![](./images/03/login.png)
 
-2.  Once you log-in, you may be directed to the Particle home page. If so, [click here to navigate](https://build.particle.io) back to Particle Build.
+2.  Once you log-in, you may be directed to the Particle home page. If so, [click here to navigate](https://build.particle.io) back to Web IDE.
 
 ![](./images/03/particle-home.png)
 
-3.  When navigating to the Web IDE (Build), the first thing you'll see is an empty editor window for a new project and a prompt to give that project a name.
+3.  When navigating to the Web IDE, the first thing you'll see is an empty editor window for a new project and a prompt to give that project a name.
 
 ![](./images/03/newproject.png)
 
@@ -45,25 +45,25 @@ In this section, you'll use Particle Build to create firmware for your Gateway X
 If you're new to embedded or IoT development, this section is for you!
 :::
 
-Before we dive into our first bit of code, a brief word about the two functions that were auto-populated into your new app. If you've done Arduino or Particle development before, you're already familiar with these and can skip ahead. If not, read on.
+Before you dive into your first bit of code, a brief word about the two functions that were auto-populated into your new app. If you've done Wiring or Particle development before, you're already familiar with these and can skip ahead. If not, read on.
 
 Every Particle application _must_ have two functions in the main file (sometimes called a "sketch"): `setup()` and `loop()`. Both of these functions are called by the Particle Device OS.
 
-True to its name, `setup()` runs only only once when the device starts up and is used for initializing buttons, sensors and other things needed to get your project ready to execute.
+True to its name, `setup()` runs only only once when the device starts up and is used for initializing buttons, sensors, and other things needed to get your project ready to execute.
 
-`loop()`, on the other hand, executes over and over again as long as your firmware is running on the device. When the function is called by the Device OS, the code inside executes sequentially until it reaches the closing brace of the function, before being called again.
+`loop()`, on the other hand, executes over and over again as long as your firmware is running on the device. When the function is called by Device OS, the code inside executes sequentially until it reaches the closing brace of the function, before being called again.
 
 While the speed at which the `loop()` function executes is determined by the specific hardware and the time needed to execute the use code you've written in the function, it's important to know that, much of the time, this function will run very fast.
 
-The bulk of your program, from state management, handling user input, reading from sensors and more will take place inside of the `loop()` function. It can take a bit of getting used to if you're not familiar with this style of development, but once you become comfortable, you'll enjoy the power this control provides you as a firmware developer.
+The bulk of your program, from state management, handling user input, reading from sensors, and more will take place inside of the `loop()` function. It can take a bit of getting used to if you're not familiar with this style of development, but once you become comfortable, you'll enjoy the power this control provides you as a firmware developer.
 
 ## Exploring Mesh Publish and Subscribe
 
-The first two Particle primitives we'll look at are also the newest, `Mesh.publish()` and `Mesh.subscribe()`. These primitives allow us to send and receive broadcast messages within a Mesh network. Unlike `Particle.publish()` and `Particle.subscribe()` which we'll look at next, these messages can only be sent to and viewed by devices on the same Mesh network.
+The first two Particle primitives to look at are also the newest: `Mesh.publish()` and `Mesh.subscribe()`. These primitives allow you to send and receive broadcast messages within a Particle Mesh network. Unlike `Particle.publish()` and `Particle.subscribe()` which you'll look at next, these messages can only be sent to and viewed by devices on the same Mesh network.
 
 ### Using `Mesh.publish()`
 
-First, we're going to use `Mesh.publish()` to send a message to our badges, which they've been pre-programmed to receive. Since we're working with a Xenon in an Ethernet FeatherWing, we'll use the `MODE` button on the Xenon to fire a Mesh message.
+First, use `Mesh.publish()` to send a message to your badge, which has been pre-programmed to receive. Since you're working with a Xenon in an Ethernet FeatherWing, you'll use the `MODE` button on the Xenon to fire a Particle Mesh message.
 
 1. In `setup`, add the following:
 
@@ -86,7 +86,7 @@ void setupHandler()
 
 When this handler is called, it will fire a multicast event to the entire Mesh network. If one or more devices on the network are listening for this event, they'll receive it and respond accordingly.
 
-3. Let's flash this firmware to your gateway. First, click on the crosshairs icon in the left side of Build to open your devices list.
+3. Let's flash this firmware to your gateway. First, click on the crosshairs icon in the left side of the Web IDE to open your devices list.
 
 ![](./images/03/devices.png)
 
@@ -138,7 +138,7 @@ Now, let's look at `Particle.publish()` and `Particle.subscribe()`, which can be
 
 ### Using `Particle.publish()`
 
-1. Open your Gateway Xenon project in the Build IDE. In the last section, you created a `setupHandler` to publish a Mesh event to your badge when the `MODE` button is pressed. Change the body of that function to also publish a `Particle` event:
+1. Open your Gateway Xenon project in the Web IDE. In the last section, you created a `setupHandler` to publish a Mesh event to your badge when the `MODE` button is pressed. Change the body of that function to also publish a `Particle` event:
 
 ```cpp{4}
 void setupHandler()

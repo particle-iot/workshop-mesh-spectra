@@ -2,7 +2,7 @@
 
 ## Ideas for taking your exploration further!
 
-Now that you've gotten an overview of Mesh and the Particle Ecosystem, why not try building a web, mobile or cloud app to interact with your Particle device? Here are a couple of ideas to get your started, and links to some resources you might find helpful.
+Now that you've gotten an overview of Mesh and the Particle Ecosystem, why not try building a web, mobile, or cloud app to interact with your Particle device? Here are a couple of ideas to get your started, and links to some resources you might find helpful.
 
 1.  Create a Particle-powered mobile app using our [iOS](https://docs.particle.io/reference/ios/), [Android](https://docs.particle.io/reference/android/), and [Windows](https://docs.particle.io/reference/windows/) SDKs.
 

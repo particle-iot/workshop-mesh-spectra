@@ -3,10 +3,10 @@
 | **Project Goal**            | Get your Particle Xenon online and claimed to your account                                                               |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | **What you’ll learn**       | How to claim a new Particle Xenon using the mobile app; Using the Ethernet shield to add network capabilities to a Xenon |
-| **Tools you’ll need**       | A Xenon, Ethernet Shield, Ethernet switch access, the Particle Mobile App                                                |
+| **Tools you’ll need**       | A Xenon, an Ethernet FeatherWing, access to an Ethernet port, the Particle Mobile App                                                |
 | **Time needed to complete** | 15 minutes                                                                                                               |
 
-In this lab, you'll claim your first Particle Mesh device, the Xenon, with the help of the Particle mobile app and an Ethernet shield. Once you've claimed your Xenon, you'll use [Tinker](https://docs.particle.io/guide/getting-started/tinker/photon/) on the Particle mobile app to interact with your new device.
+In this lab, you'll claim your first Particle Mesh device, the Xenon, with the help of the Particle mobile app and an Ethernet FeatherWing. Once you've claimed your Xenon, you'll use [Tinker](https://docs.particle.io/guide/getting-started/tinker/photon/) on the Particle mobile app to interact with your new device.
 
 ## Before you start
 
@@ -15,23 +15,23 @@ In this lab, you'll claim your first Particle Mesh device, the Xenon, with the h
 
 ## Setting up a Xenon & Ethernet shield
 
-1. Open your Xenon Kit. Remove the Xenon and USB cable.
+1. Open your Xenon Kit. Remove the Xenon and micro-USB cable.
 
 ![](./images/01/xenon.jpg)
 
-2. Remove the Ethernet shield from its box.
+2. Remove the Ethernet FeatherWing from its box.
 
 ![](./images/01/ethernet.jpg)
 
-3. Insert the Xenon into the Ethernet shield. Make sure to align the headers so that the 12-pin side of the Xenon is inserted into the 12-pin header on the shield, and the 16-pin side of the Xenon is inserted into the 16-pin header on the shield.
+3. Insert the Xenon into the Ethernet FeatherWing. Make sure to align the headers so that the 12-pin side of the Xenon is inserted into the 12-pin header on the shield, and the 16-pin side of the Xenon is inserted into the 16-pin header on the FeatherWing.
 
 ![](./images/01/xenoninshield.jpg)
 
-4. Find an available Ethernet cable at your table and plug it into the Ethernet shield.
+4. Find an available Ethernet cable at your table and plug it into the Ethernet FeatherWing.
 
 ![](./images/01/xenonpluggedin.jpg)
 
-5. Take the USB cable that came with your Xenon, plug the larger end into your laptop and the USB mini connector into the Xenon. Once the Xenon powers up, it will automatically enter "[listening mode](https://docs.particle.io/guide/getting-started/modes/photon/#listening-mode)", which means its ready to be claimed.
+5. Take the micro-USB cable that came with your Xenon, plug the larger end into your laptop and the micro-USB connector into the Xenon. Once the Xenon powers up, it will automatically enter "[listening mode](https://docs.particle.io/guide/getting-started/modes/photon/#listening-mode)", which means its ready to be claimed.
 
 ![](./images/01/listeningmode.gif)
 
@@ -59,11 +59,11 @@ In this lab, you'll claim your first Particle Mesh device, the Xenon, with the h
 
 ![](./images/01/getready.png)
 
-Make sure your device is in "Listening Mode" (aka blinking blue). If the Xenon is not in listening mode, hold down the `MODE` button for three seconds, until the RGB LED begins blinking blue.
+Make sure your device is in "Listening Mode" (indicated by the RGB LED blinking blue). If the Xenon is not in listening mode, hold down the `MODE` button for three seconds, until the RGB LED begins blinking blue.
 
 ![](./images/01/listeningmode.gif)
 
-6.  The next screen will instruct find the data matrix printed on your Xenon and scan it with your Phone's camera. Make sure to allow the app to access your camera to complete this step.
+6.  The next screen will instruct you to find the data matrix printed on your Xenon and scan it with your Phone's camera. Make sure to allow the app to access your camera to complete this step.
 
 <img src="./images/01/datamatrix.png" class="two-per-line" />
 <img src="./images/01/datamatrix2.png" class="two-per-line" />
@@ -73,7 +73,7 @@ Make sure your device is in "Listening Mode" (aka blinking blue). If the Xenon i
 <img src="./images/01/pairing1.png" class="two-per-line" />
 <img src="./images/01/pairing2.png" class="two-per-line" />
 
-8. Since you're bringing a new Xenon online and don't yet have a Mesh network configured, the app will next make sure you've connected your Xenon to an Ehternet FeatherWing.
+8. Since you're bringing a new Xenon online and don't yet have a Particle Mesh network configured, the app will next make sure you've connected your Xenon to an Ether FeatherWing.
 
 <img src="./images/01/ethernet.png" class="two-per-line" />
 <img src="./images/01/ethernet2.png" class="two-per-line" />
@@ -82,13 +82,13 @@ Make sure your device is in "Listening Mode" (aka blinking blue). If the Xenon i
 
 ![](./images/01/name.png)
 
-10. Congratulations, you've claimed your first Xenon. We'll set-up a Mesh network and second device in the next lab. For now, let's play with your new Xenon via Tinker [using the instructions below](#interacting-with-your-xenon-with-tinker)!
+10. Congratulations, you've claimed your first Xenon. You'll set up a Particle Mesh network and second device in the next lab. For now, you'll play with your new Xenon via Tinker [using the instructions below](#interacting-with-your-xenon-with-tinker)!
 
 ![](./images/01/name.png)
 
 ## Interacting with your Xenon with Tinker
 
-Now that you've claimed your Xenon, let's light up an LED!
+Now that you've claimed your Xenon, it's time to light up an LED!
 
 **Note**: images below are from the iOS app. The flow of the Android setup experience is similar.
 
@@ -106,7 +106,7 @@ Tap the device you want to interact with via Tinker.
 
 ![](./images/01/03-tinker.png)
 
-4.  Every Xenon has a blue LED that's connected to pin D7, and we can use Tinker to control this LED. Tap on the circle marked "D7" and you'll see a pop-up that gives you two options, `digitalRead` and `digitalWrite`. Click on `digitalWrite`.
+4.  Every Xenon has a blue LED that's connected to pin D7, and you can use Tinker to control this LED. Tap on the circle marked "D7" and you'll see a pop-up that gives you two options, `digitalRead` and `digitalWrite`. Click on `digitalWrite`.
 
 ![](./images/01/04-d7.png)
 
@@ -118,8 +118,8 @@ Tap the device you want to interact with via Tinker.
 
 ![](./images/01/05-d7high.png)
 
-7.  When the value changes to high, you'll also notice that the blue light at D7 is on! Behind the scenes, Tinker is calling the `digitalWrite` and passing in either a `LOW` or `HIGH` value, which turns the LED off or on. Press the button again and you'll note that the LED turns back off.
+7.  When the value changes to `HIGH`, you'll also notice that the blue light at D7 is on! Behind the scenes, Tinker is calling the `digitalWrite` and passing in either a `LOW` or `HIGH` value, which turns the LED off or on. Press the button again and you'll note that the LED turns back off.
 
 ![](./images/01/06-d7on.jpg)
 
-Congratulations! You've claimed and named your first Xenon, and made it light up using the Tinker app. Now lets bring a second Xenon online and create our first Particle Mesh network!
+Congratulations! You've claimed and named your first Xenon, and made it light up using the Tinker app. Now it's time to bring a second Xenon online and create your first Particle Mesh network!
