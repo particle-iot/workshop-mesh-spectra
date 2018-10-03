@@ -1,63 +1,48 @@
 # Chapter 2: Setting up your first Mesh network
 
-| **Project Goal**            | Create a Mesh network and connect a second Xenon to it                                                                                 |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **What you’ll learn**       | How-to: create a new Particle Mesh network; add a second device to your Mesh network; communicate through a Mesh gateway to an endpoint device. |
-| **Tools you’ll need**       | A Xenon, Ethernet FeatherWing, access to an Ethernet port, Xenon connected to a PartiBadge, the Particle Mobile App                             |
-| **Time needed to complete** | 15 minutes                                                                                                                             |
+| **Project Goal**            | Create a Mesh network and connect a second Xenon to it                                                              |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **What you’ll learn**       | How-to: add a second device to your Mesh network; communicate through a Mesh gateway to an endpoint device.         |
+| **Tools you’ll need**       | A Xenon, Ethernet FeatherWing, access to an Ethernet port, Xenon connected to a PartiBadge, the Particle Mobile App |
+| **Time needed to complete** | 15 minutes                                                                                                          |
 
-In the last session, you configured your first Xenon. In this session, you're going to create a Particle Mesh network with your Ethernet-connected Xenon as a gateway, and then add a second Xenon (the one in your PartiBadge) to that mesh network.
-
-## Create a Mesh Network
-
-1. Open the Particle Mobile app. Click on the Xenon device you setup in the last lab and click "Mesh Network."
-
-![](./images/02/joinMesh.png)
-
-2. The app will scan for existing networks, and provide an option for creating a new network. Click on the "Create new network..." option.
-
-![](./images/02/createNetwork.png)
-
-3. Next, give your network a name. Try to give it a personalized name since there are going to be a lot of networks setup for this workshop.
-
-![](./images/02/nameNetwork.png)
-
-4. And set a password for your network.
-
-![](./images/02/networkPassword.png)
-
-5. Once your network is configured, your Xenon will be updated with the network information and configured as a gateway.
-
-<img src="./images/02/networkSuccess.png" class="two-per-line" />
-<img src="./images/02/configureNetwork.png" class="two-per-line" />
-
-Once your network is created, you're ready to add a second device!
+In the last session, you configured your first Xenon and set-up a mesh network. In this session, you're going to add a second Xenon (the one in your PartiBadge) to that mesh network and interact with your second device via the gateway.
 
 ## Add your PartiBadge Xenon to your Mesh Network
 
 Your PartiBadge Xenon has already been configured with firmware and added to the Spectra mesh network. In this section, you'll claim the Xenon in your to your account and add it to your personal mesh network.
 
-1. Once your network is configured, you'll have the option to add another device. Click "Add Next Mesh Setup" to configure another device.
+1.  In the mobile app, on the "Your Devices" screen, click the "+" in the top-right to add a new device.
 
-![](./images/02/addNextDevice.png)
+![](./images/01/04-mobiledevicelist.png)
 
-2. Hold the SETUP button on your PartiBadge Xenon for three seconds until is starts blinking blue, indicating that it has entered Listening Mode.
+2.  Select the "Mesh" option and choose "Xenon" on the next screen.
+
+![](./images/01/mobileadd.png)
+
+3. Hold the SETUP button on your PartiBadge Xenon for three seconds until is starts blinking blue, indicating that it has entered Listening Mode.
 
 ![](./images/02/listeningmode.gif)
 
-3. Your phone will now scan for networks to join. It might find a few since we're all setting up networks at the same time, but if you gave your network a unique, recognizable name, you should find it in the list. Click your network name to select it once it shows up in the list.
-
-![](./images/02/findNetwork.png)
-
-4. Once you select the network, you'll be asked to make sure your device is in Listening Mode. If you didn't already do so in Step 2, put the Xenon in Listening Mode by holding down the SETUP button.
-
-![](./images/02/addToNetwork.png)
-
-5. Now, you'll be asked to scan the data matrix on your second Xenon. Do that now, just as you did with your first device.
+4. You'll now follow the same device claiming flow you used for your first Xenon. Follow the on-screen instructions and scan the data matrix on your Xenon to pair with it.
 
 ![](./images/02/pairDevice.png)
 
-6. Enter the network password you specified in the last section.
+5. Select the network you created in the last section.
+
+![](./images/02/selecMeshNetwork.png)
+
+6. You'll be instructed now to pair your phone wih an "assisting device." An assisting device is a device on a mesh network that will help your new device join the network. In this case, that device is your Ethernet FeatherWing gateway. Put the Gateway Xenon into listening mode by holding down the `MODE` button for 3 seconds until it begins blinking blue.
+
+![](./images/02/pairAssistingDevice.png)
+
+8. Scan the data matrix on the Gateway Xenon and wait for the pairing to complete.
+
+![](./images/02/joinerPair.png)
+
+7. When prompted, enter the network password you specified in the last section.
+
+![](./images/02/meshProgress.png)
 
 Congratulations! You now have a Particle Mesh network of two devices. Let's explore the power of Mesh by controlling your Badge Xenon from the cloud.
 

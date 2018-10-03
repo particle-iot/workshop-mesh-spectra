@@ -3,7 +3,7 @@
 | **Project Goal**            | Get your Particle Xenon online and claimed to your account                                                               |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | **What you’ll learn**       | How to claim a new Particle Xenon using the mobile app; Using the Ethernet shield to add network capabilities to a Xenon |
-| **Tools you’ll need**       | A Xenon, an Ethernet FeatherWing, access to an Ethernet port, the Particle Mobile App                                                |
+| **Tools you’ll need**       | A Xenon, an Ethernet FeatherWing, access to an Ethernet port, the Particle Mobile App                                    |
 | **Time needed to complete** | 15 minutes                                                                                                               |
 
 In this lab, you'll claim your first Particle Mesh device, the Xenon, with the help of the Particle mobile app and an Ethernet FeatherWing. Once you've claimed your Xenon, you'll use [Tinker](https://docs.particle.io/guide/getting-started/tinker/photon/) on the Particle mobile app to interact with your new device.
@@ -41,27 +41,29 @@ In this lab, you'll claim your first Particle Mesh device, the Xenon, with the h
 
 1.  Open the Particle Mobile App.
 
-[](./images/01/01-mobilesplash.png)
+![](./images/01/01-mobilesplash.png)
 
 2.  Login, or create a new account if you don't already have one.
 
-[](./images/01/03-mobilelogin.png)
+![](./images/01/03-mobilelogin.png)
 
 3.  On the "Your Devices" screen, click the "+" in the top-right to add a new device.
 
-[](./images/01/04-mobiledevicelist.png)
+![](./images/01/04-mobiledevicelist.png)
 
-4.  Select the "Xenon" option.
+4.  Select the "Mesh" option and choose the "Xenon" option on the next screen.
 
 ![](./images/01/mobileadd.png)
 
 5.  If you haven't done so already, plug your device into power using a USB cable. You can connect to a computer, though this is not required when using the mobile app.
 
-![](./images/01/getready.png)
-
 Make sure your device is in "Listening Mode" (indicated by the RGB LED blinking blue). If the Xenon is not in listening mode, hold down the `MODE` button for three seconds, until the RGB LED begins blinking blue.
 
 ![](./images/01/listeningmode.gif)
+
+6. On the next screen, make sure to toggle the "Use with Ethernet?" switch and click the "Xenon is Blinking Blue" button.
+
+![](./images/01/ethernetFeatherWing.png)
 
 6.  The next screen will instruct you to find the data matrix printed on your Xenon and scan it with your Phone's camera. Make sure to allow the app to access your camera to complete this step.
 
@@ -70,21 +72,39 @@ Make sure your device is in "Listening Mode" (indicated by the RGB LED blinking 
 
 7. The app will now use Bluetooth to pair with your device so that it can be added to the Particle Device Cloud and associated with your account.
 
-<img src="./images/01/pairing1.png" class="two-per-line" />
-<img src="./images/01/pairing2.png" class="two-per-line" />
+![](./images/01/pairing2.png)
 
-8. Since you're bringing a new Xenon online and don't yet have a Particle Mesh network configured, the app will next make sure you've connected your Xenon to an Ether FeatherWing.
+Congratulations, you've claimed your first Xenon. Now, you'll set up your first mesh network.
 
-<img src="./images/01/ethernet.png" class="two-per-line" />
-<img src="./images/01/ethernet2.png" class="two-per-line" />
+## Create a Mesh Network
 
-9. Once your device has been added to the Device Cloud and associated with your account, you'll want to give it a name and click "Next."
+1. Click "Continue onto Mesh Setup."
 
-![](./images/01/name.png)
+![](./images/01/joinMesh.png)
 
-10. Congratulations, you've claimed your first Xenon. You'll set up a Particle Mesh network and second device in the next lab. For now, you'll play with your new Xenon via Tinker [using the instructions below](#interacting-with-your-xenon-with-tinker)!
+2. The app will scan for existing networks, and provide an option for creating a new network. Click on the "Create new network..." option.
 
-![](./images/01/name.png)
+![](./images/02/createNetwork.png)
+
+3. Next, give your network a name. Try to give it a personalized name since there are going to be a lot of networks setup for this workshop.
+
+![](./images/01/nameNetwork.png)
+
+4. And set a password for your network.
+
+![](./images/01/networkPassword.png)
+
+5. Once your network is configured, your Xenon will be updated with the network information and configured as a gateway.
+
+![](./images/01/configNetwork.png)
+
+6. Finally, you'll be asked to give your new device a name.
+
+![](./images/01/nameXenon.png)
+
+7. Congrats, you've configured your first network. Click "I'm Done" and let's explore your new Mesh device with Tinker.
+
+![](./images/01/networkfinished.png)
 
 ## Interacting with your Xenon with Tinker
 

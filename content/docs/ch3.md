@@ -1,10 +1,10 @@
 # Chapter 3: Mesh messaging and the Particle Device Cloud
 
-| **Project Goal**            | Explore messaging between Mesh devices, and other Particle primitives.                                                      |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **Project Goal**            | Explore messaging between Mesh devices, and other Particle primitives.                                                            |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **What you’ll learn**       | How-to: use the Particle Web IDE to write device firmware; using Particle primitives to communicate between devices and networks. |
-| **Tools you’ll need**       | A Xenon, Ethernet Shield, Ethernet switch access, Xenon connected to a PartiBadge, the Particle Mobile App, The Particle    |
-| **Time needed to complete** | 30 minutes                                                                                                                  |
+| **Tools you’ll need**       | A Xenon, Ethernet Shield, Ethernet switch access, Xenon connected to a PartiBadge, the Particle Mobile App, The Particle          |
+| **Time needed to complete** | 30 minutes                                                                                                                        |
 
 In this final session, we'll leverage our new Mesh networks to explore more of the particle system, including:
 
@@ -138,13 +138,16 @@ Now, let's look at `Particle.publish()` and `Particle.subscribe()`, which can be
 
 ### Using `Particle.publish()`
 
-1. Open your Gateway Xenon project in the Web IDE. In the last section, you created a `setupHandler` to publish a Mesh event to your badge when the `MODE` button is pressed. Change the body of that function to also publish a `Particle` event:
+1. Open your Gateway Xenon project in the Web IDE. In the last section, you created a `setupHandler` to publish a Mesh event to your badge when the `MODE` button is pressed. For `Publish`, we're just going to fire an event to your badge on a loop:
 
-```cpp{4}
-void setupHandler()
+```cpp
+void loop()
 {
-  Mesh.publish("gateway-setup-clicked", "Brandon");
   Particle.publish("pulseLed", "red", PRIVATE); // Or "blue", "green", "yellow"
+  digitalWrite(D7, HIGH);
+  delay(3000);
+  digitalWrite(D7, LOW);
+  delay(2000);
 }
 ```
 
@@ -168,7 +171,7 @@ void pulseLEDHandler(const char *event, const char *data)
 }
 ```
 
-3. Flash the latest code to your Gateway and press the `MODE` button. In addition to seeing your original Mesh event, you should see the LED you specified in the publish event fade in and out. Do you notice a difference in how quickly these two things happen?
+3. Flash the latest code to your Gateway and wait a few seconds for that event to fire, at which point you should see a single LED fade in and out on your badge. Feel free to comment this code out and re-flash if you don't want it.
 
 ### Using `Particle.subscribe()`
 
