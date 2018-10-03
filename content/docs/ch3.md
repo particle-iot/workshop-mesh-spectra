@@ -13,7 +13,7 @@ In this final session, we'll leverage our new Mesh networks to explore more of t
 - Using Particle publish and subscribe to communicate between networks and devices;
 - Using Particle functions and variables to control devices from the Cloud.
 
-The code you'll write in this lab will live on your gateway Xenon, and communicate with your PartiBadge in a variety of ways. By the end of this session, you'll have all the tools you need to start building Particle-powered solutions with Particle Mesh!
+The code you'll write in this lab will live on your gateway Xenon, and communicate with your PartiBadge in a variety of ways. By the end of this session, you'll have all the tools you need to start building Particle-powered solutions with Particle Mesh! If you get stuck at any point in the process, you can download the completed lab [here](https://go.particle.io/shared_apps/5bb531c3916cdc2f50001605).
 
 ## Using the Particle Web IDE
 

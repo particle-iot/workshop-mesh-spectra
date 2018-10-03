@@ -116,7 +116,7 @@ Now that you've claimed your Xenon, it's time to light up an LED!
 
 ![](./images/01/01-mobilesplash.png)
 
-2.  Your new device should show up in the list with the name you gave it. If the Tinker firmware is still on the device, you'll see that indicated as well. If Tinker is not still on the device, you can flash it back onto the device using the Particle CLI with the command `particle flash <deviceName> tinker`.
+2.  Your new device should show up in the list with the name you gave it. If the Tinker firmware is still on the device, you'll see that indicated as well.
 
 Tap the device you want to interact with via Tinker.
 
