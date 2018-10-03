@@ -13,7 +13,7 @@ In this final session, we'll leverage our new Mesh networks to explore more of t
 - Using Particle publish and subscribe to communicate between networks and devices;
 - Using Particle functions and variables to control devices from the Cloud.
 
-The code you'll write in this lab will live on your gateway Xenon, and communicate with your PartiBadge in a variety of ways. By the end of this session, you'll have all the tools you need to start building Particle-powered solutions with Particle Mesh! If you get stuck at any point in the process, you can download the completed lab [here](https://go.particle.io/shared_apps/5bb531c3916cdc2f50001605).
+The code you'll write in this lab will live on your gateway Xenon, and communicate with your PartiBadge in a variety of ways. By the end of this session, you'll have all the tools you need to start building Particle-powered solutions with Particle Mesh! If you get stuck at any point in the process, you can download the completed lab [here](https://go.particle.io/shared_apps/5bb53532e116e9f700000028).
 
 ## Using the Particle Web IDE
 
@@ -175,31 +175,26 @@ void pulseLEDHandler(const char *event, const char *data)
 
 ### Using `Particle.subscribe()`
 
-Now let's implement a `Particle.subscribe()` handler on the gateway. Each badge publishes an event every two minutes when it reads its temp and humidity sensor. We'll listen for that event and light up the RGB LED on your Xenon using the built-in `LEDStatus` class.
+Now let's implement a `Particle.subscribe()` handler on the gateway. Each badge publishes an event every two minutes when it reads its temp and humidity sensor. We'll listen for that event and light up the RGB LED on your Xenon using the built-in `RGB` class.
 
-1. At the top of your Gateway firmware, add the following line to create an instance of the `LEDStatus` class:
-
-```cpp
-LEDStatus blinkBlue(RGB_COLOR_BLUE, LED_PATTERN_BLINK);
-```
-
-2. Next, add a subscription to the `setup` function.
+1. Add a subscription to the `setup` function.
 
 ```cpp
 Particle.subscribe("env-sensors", tempHandler, MY_DEVICES);
 ```
 
-3. Finally, add the handler.
+2. Then, add the handler.
 
 ```cpp
 void tempHandler(const char *event, const char *data) {
-  blinkBlue.setActive(true);
-  delay(3000);
-  blinkBlue.setActive(false);
+    RGB.control(true);
+    RGB.color(255,150,0);
+    delay(1000);
+    RGB.control(false);
 }
 ```
 
-4. Flash this firmware to your gateway and wait a bit for an event to be published. You can visit your badge dashboard at [console.particle.io](https://console.particle.io) to see when the `env-sensors` event is published. When it is, the RGB LED on your gateway should blink blue for 3 seconds.
+3. Flash this firmware to your gateway and wait a bit for an event to be published. You can visit your badge dashboard at [console.particle.io](https://console.particle.io) to see when the `env-sensors` event is published. When it is, the RGB LED on your gateway should blink orange each second.
 
 As we discussed during the session, the main difference between Mesh pub/sub and Particle pub/sub is that the former is intended for communication between devices within a network and doesn't leverage the cloud to facilitate communication. The latter, on the other hand, uses the cloud, which allows communication across networks, or even with 3rd party apps and integrations.
 
