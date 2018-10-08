@@ -1,4 +1,18 @@
-# Extras: Building Apps with Particle
+# Extras: Hacking on Mesh
+
+## Clearing the badge firmware from a Xenon
+
+The custom firmware on your PartiBadge requires certain hardware to be present in order to fully initialize. If you want to use the Xenon in your badge for your own projects, you'll need to flash new firmware to the device before you remove it from the badge hardware, or put the device into safe mode once it's been removed. Safe mode means that the Xenon is running Devices OS firmware and is connected to the cloud, but is not running any user firmware (the badge firmware, in this case).
+
+To put your Xenon into Safe Mode:
+
+1. Hold down the `MODE` and `RESET` buttons.
+2. Let go of the `RESET` button until the onboard RGB LED starts flashing magenta.
+3. Let go of the `MODE` button.
+
+After a few seconds, your device should start slowly "breathing" magenta, indicating that it has entered safe mode. At this point, you can flash your own firmware to the Xenon, or use an example program like [Blink an LED](https://build.particle.io/examples/56214d636666d9ece3000001) to clear out the badge firmware.
+
+Happy hacking!
 
 ## Ideas for taking your exploration further!
 
@@ -14,7 +28,7 @@ Now that you've gotten an overview of Mesh and the Particle Ecosystem, why not t
 
 5.  [Apply to get a sneak peek at the new Particle Workbench](https://www.particle.io/workbench/apply/)
 
-6)  [Request Access to the Particle Rules Engine Beta](https://www.particle.io/iot-rules-engine)
+6.  [Request Access to the Particle Rules Engine Beta](https://www.particle.io/iot-rules-engine)
 
 ## Particle Resources
 
