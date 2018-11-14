@@ -1,12 +1,12 @@
 module.exports = {
   base: '/',
   themeConfig: {
-    repo: 'particle-iot/workshop-mesh-spectra',
+    repo: 'nielsclausen/workshop-mesh-thingscon2018',
     editLinks: true,
     editLinkText: 'Help us improve this page!',
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Team', link: 'http://particle.io' }
+      { text: 'Reflektor', link: 'https://www.reflektor.dk/' },
+      { text: 'Particle', link: 'http://particle.io' }
     ],
     sidebar: [
       '/docs/',
