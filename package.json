@@ -1,20 +1,24 @@
 {
-  "name": "workshop-mesh-spectra",
-  "version": "1.0.0",
-  "description": "Workshops designed to teach the basics of IoT development with the Particle ecosystem",
+  "name": "workshop-mesh-thingscon2018",
+  "version": "0.0.1",
+  "description": "Workshop designed to teach the basics of IoT development with the Particle Mesh ecosystem",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:build": "vuepress build content"
+    "docs:build": "vuepress build content",
+    "docs:dev": "vuepress dev content"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/particle-iot/workshop-mesh-spectra.git"
+    "url": "git+https://github.com/nielsclausen/workshop-mesh-thingscon2018"
   },
-  "author": "Brandon Satrom <brandon@particle.io>",
+  "author": "Niels Jerichau Clausen <niels@reflektor.dk>",
+  "contributors": [
+    "Brandon Satrom <brandon@particle.io>"
+  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/particle-iot/workshop-mesh-spectra/issues"
+  "devDependencies": {
+    "vuepress": "^0.14.5"
   },
-  "homepage": "https://github.com/particle-iot/workshop-mesh-spectra#readme"
+  "dependencies": {}
 }
