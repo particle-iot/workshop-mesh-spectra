@@ -1,2 +1,2 @@
-# workshop-mesh-spectra
-Content for the Xenon-based Mesh workshop for Spectra
+# workshop-mesh-thingscon2018
+Content for the Argon-based Mesh workshop for thingscon 2018.

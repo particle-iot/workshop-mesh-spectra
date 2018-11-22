@@ -1,25 +1,19 @@
 module.exports = {
   base: '/',
   themeConfig: {
-    repo: 'particle-iot/workshop-mesh-spectra',
-    editLinks: true,
-    editLinkText: 'Help us improve this page!',
+    repo: 'nielsclausen/workshop-mesh-thingscon2018',
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Team', link: 'http://particle.io' }
+      { text: 'Reflektor', link: 'https://www.reflektor.dk/' },
+      { text: 'Particle', link: 'http://particle.io' }
     ],
     sidebar: [
-      '/docs/',
-      ['/docs/ch1', 'Chapter 1: Claiming your first Mesh device'],
-      ['/docs/ch2', 'Chapter 2: Setting up your first Mesh network'],
-      [
-        '/docs/ch3',
-        'Chapter 3: Working with sensors and the Particle Device Cloud'
-      ],
-      ['/docs/extra1', 'Extra: Taking your exploration further']
+      ['/workshop/', 'Introduction'],
+      ['/workshop/prerequisites', 'Preparations'],
+      ['/workshop/box-to-blinky', '1 – From Box to Blinky'],
+      ['/workshop/grove-kit-distance-display', '2 – Measuring a distance'],
+      ['/workshop/mesh-messaging', '3 – Working in the Mesh'],
+      ['/workshop/mesh-distance-display', '4 – Putting it all together']
     ]
   },
-  title: 'Particle Mesh Workshop',
-  description:
-    'A hands-on walkthrough of the Particle ecosystem, Particle Mesh and the new Particle Xenon.'
+  title: 'IoT Workshop – Particle Mesh'
 };
